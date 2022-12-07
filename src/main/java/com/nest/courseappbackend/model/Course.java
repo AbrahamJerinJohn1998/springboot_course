@@ -1,16 +1,15 @@
 package com.nest.courseappbackend.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "coursedb")
 public class Course {
     @Id
     @GeneratedValue
+    private int id;
     private String courseTitle;
     private String courseDuration;
     private String courseDescription;
@@ -20,12 +19,21 @@ public class Course {
     public Course() {
     }
 
-    public Course(String courseTitle, String courseDuration, String courseDescription, String courseDate, String courseVenue) {
+    public Course(int id, String courseTitle, String courseDuration, String courseDescription, String courseDate, String courseVenue) {
+        this.id = id;
         this.courseTitle = courseTitle;
         this.courseDuration = courseDuration;
         this.courseDescription = courseDescription;
         this.courseDate = courseDate;
         this.courseVenue = courseVenue;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCourseTitle() {
