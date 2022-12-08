@@ -28,14 +28,14 @@ private CourseDao dao;
         return map;
     }
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    @GetMapping("/view")
     public List<Course> view()
     {
         return (List<Course>) dao.findAll();
     }
     @CrossOrigin(origins = "*")
-    @GetMapping("/view")
-    public List<Course> search(@RequestBody Course c)
+    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    public List<Course> searchCourse(@RequestBody Course c)
     {
         String courseTitle= c.getCourseTitle().toString();
         System.out.println(courseTitle);

@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CourseDao extends CrudRepository<Course,Integer> {
-    @Query(value = "SELECT 'id','courseTitle','courseDuration','coursedescription','courseDate','courseVenue' from coursedb WHERE 'courseTitle' LIKE %:courseTitle",nativeQuery = true)
+    @Query(value = "SELECT `id`, `course_date`, `course_description`, `course_duration`, `course_title`, `course_venue` FROM `course` WHERE  `course_title` LIKE %:courseTitle%",nativeQuery = true)
     List<Course> searchCourse(@Param("courseTitle")String courseTitle);
 }
 

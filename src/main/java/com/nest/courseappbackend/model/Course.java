@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "coursedb")
+@Table(name = "course")
 public class Course {
     @Id
     @GeneratedValue
